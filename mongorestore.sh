@@ -1,0 +1,1 @@
+mongorestore -d test_database -c test_collection /app/dump/sample_collection.bson
