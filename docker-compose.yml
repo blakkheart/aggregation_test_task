@@ -1,0 +1,19 @@
+version: '3'
+
+volumes:
+  dbdata6:
+
+services:
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - dbdata6:/data/db
+      - ./sampleDB/.:/app/dump/
+    ports:
+      - '27017:27017'
+  
+  telegram_bot:
+    build: ./
+    env_file: .env
+    depends_on:
+      - mongodb
